@@ -4,9 +4,24 @@ padding:0;
 box-sizing:border-box;
 }
 
+:root{
+
+    --bg:#090909;
+
+    --primary:#8B5CF6;
+    --primary-light:#C084FC;
+    --primary-dark:#5B21B6;
+
+    --text:#FFFFFF;
+    --text-secondary:#B8B8B8;
+
+    --glow:rgba(139,92,246,.45);
+
+}
+
 body{
 
-background:#090909;
+background:var(--bg);
 
 font-family:Segoe UI;
 
@@ -29,7 +44,7 @@ top:50%;
 
 transform:translate(-50%,-50%);
 
-background:radial-gradient(circle,#6c4d11 0%,transparent 70%);
+background:radial-gradient(circle,var(--primary) 0%,transparent 70%);
 
 opacity:.35;
 
@@ -61,7 +76,7 @@ letter-spacing:8px;
 
 font-weight:bold;
 
-color:#d7b463;
+color:var(--primary-light);
 
 margin-bottom:20px;
 
@@ -123,7 +138,11 @@ font-size:70px;
 
 cursor:pointer;
 
-transition:.35s;
+transition:
+transform .35s,
+box-shadow .35s,
+border-color .35s,
+background .35s;
 
 user-select:none;
 
@@ -133,15 +152,25 @@ user-select:none;
 
 transform:translateY(-10px);
 
-border-color:#d7b463;
+border-color:var(--primary-light);
 
-box-shadow:0 0 35px rgba(214,180,99,.35);
+background:linear-gradient(
+180deg,
+#2d184a,
+#160922
+);
+
+box-shadow:0 0 35px var(--glow);
 
 }
 
 .card.open{
 
-background:linear-gradient(180deg,#5e4414,#2b1d08);
+background:linear-gradient(
+180deg,
+var(--primary),
+var(--primary-dark)
+);
 
 font-size:22px;
 
@@ -180,14 +209,14 @@ border-radius:20px;
 width:420px;
 
 text-align:center;
+border:1px solid var(--primary-light);
 
-border:1px solid #d7b463;
 
 }
 
 .popup-card h2{
 
-color:#d7b463;
+color:var(--primary-light);
 
 margin-bottom:25px;
 
@@ -213,7 +242,16 @@ cursor:pointer;
 
 font-size:18px;
 
-background:#d7b463;
+background:var(--primary);
+color:white;
+
+.popup button:hover{
+
+    background:var(--primary-light);
+
+    transform:translateY(-2px);
+
+}
 
 }
 
