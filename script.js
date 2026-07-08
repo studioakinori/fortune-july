@@ -1,3 +1,19 @@
+const params = new URLSearchParams(window.location.search);
+
+const clientName = params.get("name") || "Guest";
+
+document.getElementById("welcome").innerText =
+`Welcome, ${clientName}!`;
+
+const SUPABASE_URL = "https://gghtuuwfvvrrzkcqvwxr.supabase.co";
+
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdnaHR1dXdmdnZycnprY3F2d3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0OTEzMjMsImV4cCI6MjA5OTA2NzMyM30.nlq4fNa_yiXk4R586vZNNcEPEMJvWl2MjcpUqoJPHuY";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 const rewards = [
 
 "50% Chibi Transform",
