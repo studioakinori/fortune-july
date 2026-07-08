@@ -44,6 +44,8 @@ let rewardIndex=0;
 
 let locked=false;
 
+const selectedRewards = [];
+
 for(let i=0;i<7;i++){
 
 const card=document.createElement("div");
@@ -64,9 +66,13 @@ locked=true;
 
 card.classList.add("open");
 
-card.innerHTML=rewards[rewardIndex];
+const reward = rewards[rewardIndex];
 
-rewardText.innerHTML=rewards[rewardIndex];
+selectedRewards.push(reward);
+
+card.innerHTML = reward;
+
+rewardText.innerHTML = reward;
 
 rewardIndex++;
 
@@ -89,6 +95,8 @@ popup.classList.add("hidden");
 locked=false;
 
 if(remaining===0){
+
+console.log(selectedRewards);
 
 setTimeout(()=>{
 
