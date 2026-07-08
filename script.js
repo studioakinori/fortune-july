@@ -44,7 +44,7 @@ let rewardIndex=0;
 
 let locked=false;
 
-const selectedRewards = [];
+let selectedRewards = [];
 
 for(let i=0;i<7;i++){
 
@@ -88,21 +88,40 @@ cards.appendChild(card);
 
 }
 
-continueBtn.onclick=()=>{
+continueBtn.onclick = async () => {
 
 popup.classList.add("hidden");
 
 locked=false;
 
-if(remaining===0){
+if (remaining === 0) {
 
-console.log(selectedRewards);
+    console.log(selectedRewards);
 
-setTimeout(()=>{
+    const { error } = await db
+        .from("fortune_results")
+        .insert([
+            {
+                client_name: clientName,
+                month: "July",
+                reward1: selectedRewards[0],
+                reward2: selectedRewards[1],
+                reward3: selectedRewards[2],
+                claimed: true
+            }
+        ]);
 
-alert("Thank you for joining Akinori Studio's Fortune Event!");
+    if (error) {
 
-},200);
+        console.error(error);
+
+        alert("Failed to save rewards.");
+
+    } else {
+
+        alert("Your rewards have been saved successfully!");
+
+    }
 
 }
 
