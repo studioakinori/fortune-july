@@ -50,8 +50,8 @@ price:"Only $99"
 },
 
 {
-title:"20% OFF",
-bonus:"VTuber Model Upgrade\n(Explained on chat)",
+title:"50% OFF",
+bonus:"Chibi Transform Toggle",
 price:""
 }
 
